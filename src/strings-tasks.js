@@ -501,10 +501,11 @@ function encodeToRot13(str) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {
-  const rows = 4;
+function getCardId(/* value */) {
+  throw new Error('Not implemented');
+  /*   const rows = 4;
   const cols = 13;
-  const suits = ['♣', '♦', '♥', '♠'];
+  const suits = ['♣', '♦', '♥', '♠']; */
 }
 
 module.exports = {
