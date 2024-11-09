@@ -501,11 +501,25 @@ function encodeToRot13(str) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
-  /*   const rows = 4;
-  const cols = 13;
-  const suits = ['♣', '♦', '♥', '♠']; */
+function getCardId(value) {
+  const rows = 4;
+  const cols = 9;
+  const suits = ['♣', '♦', '♥', '♠'];
+  let list = [];
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 1; col <= cols; col += 1) {
+      if (col === 1) list.push(`A${suits[row]}`);
+      list.push(`${col + 1}${suits[row]}`);
+      if (col === cols) {
+        list = list.concat([
+          `J${suits[row]}`,
+          `Q${suits[row]}`,
+          `K${suits[row]}`,
+        ]);
+      }
+    }
+  }
+  return list.indexOf(value);
 }
 
 module.exports = {
